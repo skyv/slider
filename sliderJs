@@ -1,0 +1,113 @@
+function showPreviousChar(sliderId) {
+    
+    var slider = jQuery('#' + sliderId),
+        sliderCount = slider.find('li').length,
+        currentActive = slider.find('li.active'),
+        currentIndex = slider.find('li.active').index(),
+        navButtons = slider.find('.slider-nav button');
+
+    if(!meetCrewBgCache) imageCaching();
+
+    slider.find('li.inactive').css('left', -800);
+    slider.find('.slider-nav button').addClass('disabled');  
+
+    currentActive.animate({
+        left:800
+    }, 1000, function () {
+        currentActive.addClass('inactive').removeClass('active');
+    });
+    
+    if (currentIndex === 0) {
+        slider.find('li:last-child').delay(100).animate({
+            left:0
+        }, 1000, function () {
+            slider.find('li:last-child').addClass('active').removeClass('inactive').attr("style","");
+            audioPlay();
+            navButtons.removeClass('disabled');
+                        
+        });
+    } else {
+        currentActive.prev().delay(100).animate({
+            left:0
+        }, 1000, function () {
+            currentActive.prev().addClass('active').removeClass('inactive').attr("style","");
+            audioPlay();
+            navButtons.removeClass('disabled');           
+        });
+    }           
+
+//Code to change slider bg          
+    if (currentIndex === 0) {           
+        meetCrewBg = slider.find('li:last-child').find('img').data('char-background');
+        setSliderBgImage ('url('+meetCrewBg+')','tab-container-bg');
+    } else {
+        meetCrewBg = currentActive.prev().find('img').data('char-background');
+        setSliderBgImage ('url('+meetCrewBg+')','tab-container-bg');
+    }
+}
+
+function showNextChar(sliderId) {  
+        
+    var slider = jQuery('#' + sliderId),
+        sliderCount = slider.find('li').length,
+        currentActive = slider.find('li.active'),
+        nextActive = slider.find('li.active').next(),
+        currentIndex = slider.find('li.active').index(),
+        navButtons = slider.find('.slider-nav button');
+
+    if(!meetCrewBgCache) imageCaching();
+
+    slider.find('li.inactive').css('left', 800);
+    navButtons.addClass('disabled');  
+        
+    currentActive.animate({
+        left:-800
+    }, 1000, function () {
+        currentActive.addClass('inactive').removeClass('active');
+    });
+
+    if (currentIndex === (sliderCount - 1)) {
+        slider.find('li:first-child').delay(100).animate({
+            left:0
+        }, 1000, function () {
+            slider.find('li:first-child').addClass('active').removeClass('inactive').next().attr("style","");
+            audioPlay();
+            navButtons.removeClass('disabled');
+        });
+    } else {
+        currentActive.next().delay(100).animate({
+            left:0
+        }, 1000, function () {
+            currentActive.next().addClass('active').removeClass('inactive').attr("style","");
+            audioPlay();
+            navButtons.removeClass('disabled');
+        });
+    }  
+
+//Code to change slider bg 
+    if (currentIndex === (sliderCount - 1)){ 
+        meetCrewBg = slider.find('li:first-child').find('img').data('char-background');        
+        setSliderBgImage ('url('+meetCrewBg+')','tab-container-bg');
+    } else {
+        meetCrewBg = currentActive.next().find('img').data('char-background');        
+        setSliderBgImage ('url('+meetCrewBg+')','tab-container-bg');
+    }    
+}
+
+function audioPlay() {
+    if(jQuery('#crew-slider .slides li.active').hasClass('audio-on')) {
+  
+        var audioSrcOgg = jQuery('#crew-slider .slides li.active span').attr('data-audioOgg');
+        var audioSrcWav = jQuery('#crew-slider .slides li.active span').attr('data-audioWav');
+
+        jQuery('#meet-crew-audio').html('<audio class="character-audio" preload="auto"><source src="'+audioSrcOgg+'" type="audio/ogg"><source src="'+audioSrcWav+'" type="audio/wav">Your browser does not support the audio element.</audio>');
+        var audioTag = jQuery('#meet-crew-audio audio')[0];
+        
+        audioTag.load();
+        audioTag.play();
+        jQuery('#crew-slider audio').on('ended', function() {
+            sliderExecuting = false;
+            return;
+        });
+    }   
+}
