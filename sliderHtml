@@ -1,0 +1,51 @@
+<div id="crew-slider">
+								<div id="meet-crew-audio"></div>
+								<ul class="slides">
+									<li class="active center-aligned character-1 audio-on">
+										<img src="images/brittany.png" width='238' data-char-background="video_bg.jpg" data-gender="female" alt="Brittany"/>
+										<p class="center-aligned">BRITTANY</p>
+										<p class="center-aligned character-description">The lead singer and the Dazzling center of her own universe</p>
+										<span data-audioOgg="DAVESCREAMSALVIN.ogg" data-audioWav="DAVESCREAMSALVIN.wav"></span>										
+									</li>
+									<li class="inactive center-aligned character-2 audio-on">
+										<img src="images/alvin.png" data-char-background="meet_the_crew_bg.jpg" data-gender="male" alt="Alvin"/>
+										<p class="center-aligned">ALVIN</p>
+										<p class="center-aligned character-description">The Mischievous troublemaker</p>
+										<span data-audioOgg="DAVESCREAMSALVIN.ogg" data-audioWav="DAVESCREAMSALVIN.wav"></span>
+									</li>
+									<li class="inactive center-aligned character-3 audio-on">
+										<img src="images/eleanor.png" data-char-background="video_bg.jpg" data-gender="female" alt="Eleanor"/>
+										<p class="center-aligned">ELEANOR</p>
+										<p class="center-aligned character-description">Athletic, organized and extremely maternal</p>
+										<span data-audioOgg="DAVESCREAMSALVIN.ogg" data-audioWav="DAVESCREAMSALVIN.wav"></span>
+									</li>
+									<li class="inactive center-aligned character-4 audio-on">
+										<img src="images/simon.png" data-char-background="video_bg.jpg" data-gender="male" alt="Simon"/>
+										<p class="center-aligned">SIMON</p>
+										<p class="center-aligned character-description">The chess master</p>
+										<span data-audioOgg="DAVESCREAMSALVIN.ogg" data-audioWav="DAVESCREAMSALVIN.wav"></span>
+									</li>
+									<li class="inactive center-aligned character-5 audio-on">
+										<img src="images/jeanette.png" data-char-background="video_bg.jpg" data-gender="female" alt="Jeanette" />
+										<p class="center-aligned">JEANETTE</p>
+										<p class="center-aligned character-description">The Shy, sweet, imaginative one</p>
+										<span data-audioOgg="DAVESCREAMSALVIN.ogg" data-audioWav="DAVESCREAMSALVIN.wav"></span>
+									</li>
+									<li class="inactive center-aligned character-6 audio-on">
+										<img src="images/theodore.png" data-char-background="video_bg.jpg" data-gender="male" alt="Theodore" />
+										<p class="center-aligned">THEODORE</p>
+										<p class="center-aligned character-description">The Adorable, Innocent One</p>
+										<span data-audioOgg="DAVESCREAMSALVIN.ogg" data-audioWav="DAVESCREAMSALVIN.wav"></span>
+									</li>
+									<li class="inactive center-aligned character-7 audio-on">
+										<img src="images/Dave.png" data-char-background="dave_bg.jpg" data-gender="male" alt="Dave Seville" />
+										<p class="center-aligned">DAVE SEVILLE</p>
+										<p class="center-aligned character-description">The Chipmunks' Adoptive Father, confidant, and songwriter</p>
+										<span data-audioOgg="DAVESCREAMSALVIN.ogg" data-audioWav="DAVESCREAMSALVIN.wav"></span>
+									</li>
+								</ul>
+								<div class="slider-nav">
+									<button id="crew-slider-prev" onclick="showPreviousChar('crew-slider')">PREV</button>
+									<button id="crew-slider-next" onclick="showNextChar('crew-slider')">NEXT</button>
+								</div>
+							</div>
